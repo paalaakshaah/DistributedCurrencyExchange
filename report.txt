@@ -1,0 +1,39 @@
+What I learnt rom this assignment:
+	Basics of Socket programming.
+	Multithreading using the Thread class
+	
+Problems and Solutions:
+1]	[FIXED] Every process has a message queue that is updated by the Thread every time it receives a message. 
+	The problem I faced here was that I was unable to create a volatile queue (ArrayList) variable because it could not be used by the main function 
+	which requires a static variable.
+Sol:I made a shared queue(ArrayList<String> message) and created a synchronized function in Worker to update the queue. This ensures that the queue is shared by all threads
+	and also that only one thread can update it at a time.
+ 
+ 2]	[FIXED]I faced a problem that a process was not able to send messages (updates and acks) to itself.
+Sol:I made an eleborate arrangement in which a process sends the message to both its neighbors. Then the neighbors send the message back to the original process
+	Finally, the process sends the message back again.
+	This ensures that all the messages sent by a process are received by all three processes. But, this adds the complexity that every message is delivered twice.
+	I modified the rest of my code to take care of this.
+	
+3]	[FIXED]While contesting for the queue, I faced the problem that if a process selects very low random times, it may try to send it's second message, 
+	when it should be sending ack for first message of another process.
+Sol:I fixed this problem by making sure that after trying to send an update message, the process waits for the remainder of 1 sec before selecting a random number again.
+	While this solved the problem of synchronization and gave correct output, it added the complexity that the code will run for (3*number of Operations) seconds
+	This means that for 30 operations, the list will run for 90 seconds.
+	
+4]	[UN-FIXED] Some processes receive some messages twice and their order is thrown off.a process has no more messages to send and it encounters an empty queue.
+	The sp[] Array still holds the last update message delivered before clearing the queue.
+Sol:Possible reasons for this error could be that:
+	a]	A process has no more messages to send and it encounters an empty queue. The sp[] Array still holds the last update message delivered before clearing the queue
+		Tried to solve this by emptying the sp[] Array if the message queue is empty, so that older values are flushed.
+	b]	Two processes may try send update at the same time and succeed i.e. they both send an update and wait for the acknowledge resulting in a deadlock.
+		I tried to solve this by making the code for sending updates in a synchronized so that only one thread can access it.
+		This does not work between processes because they are running on different machines and therefore do not have any shared variable that can be synchrinized.
+This problem sometimes leads to the processes going int an infinite loop. Then, they have to be terminated manually and the log files will be blank.
+This code runs fairly well on small number of operations. but for many operations, the possibility of going into an infinite loop increases.
+		
+5]	[UN-FIXED] Error while sending terminating message. In my code when the processes are done with sending updates and acks, they each try to terminate the socket connection at the same time.
+	In case a process tries to terminate a socket that was already teminated by the opposite side, the first process receives an error saying 
+	"Couldn't get I/O for the connection to port"
+Sol:This problem does not affect the correctness of the algorithm, so for the time-being, I have left it unsolved. 
+	If I had more time, I would have solved this using some kind of 3-way handshake

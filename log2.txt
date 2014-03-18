@@ -1,0 +1,32 @@
+[P0]localhost:5551
+[P1]localhost:5552
+[P2]localhost:5553
+
+P2(localhost) is active on 5553 ...
+
+[ 03/18 07:30:29 ] P2 is connected to P0 (localhost)
+Waiting for all to be connected...
+
+[ 03/18 07:30:29 ] P2 is connected to P1 (localhost)
+All connected.
+
+[ 03/18 07:30:30 ] [ OP1 : C15 ] Currency Value is set to (162,130) by (62,30).
+[ 03/18 07:30:31 ] [ OP2 : C17 ] Currency Value is set to (186,106) by (24,-24).
+[ 03/18 07:30:32 ] [ OP3 : C19 ] Currency Value is set to (109,40) by (-77,-66).
+[ 03/18 07:30:33 ] [ OP4 : C21 ] Currency Value is set to (57,84) by (-52,44).
+[ 03/18 07:30:35 ] [ OP5 : C37 ] Currency Value is set to (78,78) by (21,-6).
+[ 03/18 07:30:36 ] [ OP6 : C40 ] Currency Value is set to (125,20) by (47,-58).
+[ 03/18 07:30:37 ] [ OP7 : C42 ] Currency Value is set to (202,22) by (77,2).
+[ 03/18 07:30:38 ] [ OP8 : C44 ] Currency Value is set to (198,-19) by (-4,-41).
+[ 03/18 07:30:39 ] [ OP9 : C46 ] Currency Value is set to (222,-13) by (24,6).
+[ 03/18 07:30:40 ] [ OP10 : C48 ] Currency Value is set to (264,-83) by (42,-70).
+[ 03/18 07:30:41 ] [ OP11 : C50 ] Currency Value is set to (299,-118) by (35,-35).
+[ 03/18 07:30:42 ] [ OP12 : C52 ] Currency Value is set to (323,-51) by (24,67).
+[ 03/18 07:30:43 ] [ OP13 : C54 ] Currency Value is set to (328,-95) by (5,-44).
+[ 03/18 07:30:43 ] P0 finished
+[ 03/18 07:30:44 ] [ OP14 : C56 ] Currency Value is set to (345,-79) by (17,16).
+[ 03/18 07:30:44 ] P2 finished
+[ 03/18 07:30:45 ] [ OP15 : C58 ] Currency Value is set to (423,-28) by (78,51).
+[ 03/18 07:30:45 ] P1 finished
+
+[ 03/18 07:30:45 ] All finished. P2 is terminating...
